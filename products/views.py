@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product
 
+# Create your views here.
 
-# A view to return the all products and search queries
 def all_products(request):
+    """ A view to show all products, including sorting and search queries """
 
     products = Product.objects.all()
 
@@ -14,8 +15,8 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-# A view to return a single product
 def product_detail(request, product_id):
+    """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
 
@@ -24,3 +25,4 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
