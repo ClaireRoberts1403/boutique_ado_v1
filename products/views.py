@@ -12,3 +12,15 @@ def all_products(request):
     }
 
     return render(request, 'products/products.html', context)
+
+
+# A view to return a single product
+def product_detail(request, product_id):
+
+    products = Product.objects.all()
+
+    context = {
+        'products': products,
+    }
+
+    return render(request, 'products/product_detail.html', context)
